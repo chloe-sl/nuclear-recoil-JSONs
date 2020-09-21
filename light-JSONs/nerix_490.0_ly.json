@@ -1,0 +1,55 @@
+{
+    "name": "neriX",
+    "identification": "10.1103/PhysRevD.98.112003",
+    "field": 490.0,
+    "yield_type": "light",
+    "drift_field_error": 0.0,
+    "recoil_energy": [
+        4.95,
+        6.6,
+        10.62,
+        13.95
+    ],
+    "yield": [
+        7.3,
+        8.7,
+        8.4,
+        10.1
+    ],
+    "recoil_error": [
+        0.7,
+        0.3,
+        0.3,
+        0.3
+    ],
+    "corrected_energy": [
+        4.95,
+        6.6,
+        10.62,
+        13.95
+    ],
+    "max_recoil": [
+        0.7,
+        0.3,
+        0.3,
+        0.3
+    ],
+    "min_recoil": [
+        0.7,
+        0.3,
+        0.3,
+        0.3
+    ],
+    "max_yield": [
+        0.83,
+        1.52,
+        1.54,
+        2.46
+    ],
+    "min_yield": [
+        0.83,
+        1.52,
+        1.54,
+        2.46
+    ]
+}
