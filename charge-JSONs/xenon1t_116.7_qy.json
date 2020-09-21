@@ -1,0 +1,47 @@
+{
+    "name": "XENON1T",
+    "identification": "https://indico.bnl.gov/event/4908/attachments/20271/27046/181004_QingLin_XENON1T_BNLSeminar.pdf\u00a0",
+    "field": 116.7,
+    "yield_type": "charge",
+    "drift_field_error": 7.5,
+    "gas_drift_field": "10",
+    "liquid_drift_field": "5",
+    "extraction_efficiency": "0.96",
+    "pixey": "0.85",
+    "recoil_energy": [
+        2.0,
+        2.77,
+        3.86,
+        5.55,
+        8.02,
+        11.52,
+        16.56
+    ],
+    "yield": [
+        6.7815012999999995,
+        6.4570904,
+        6.079041,
+        5.6801267,
+        5.3274403,
+        4.9966526,
+        4.6336894
+    ],
+    "recoil_error": [
+        0.14,
+        0.14,
+        0.13,
+        0.12,
+        0.11,
+        0.1,
+        0.1
+    ],
+    "corrected_energy": [
+        2.0,
+        2.77,
+        3.86,
+        5.55,
+        8.02,
+        11.52,
+        16.56
+    ]
+}

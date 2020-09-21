@@ -1,0 +1,47 @@
+{
+    "name": "Xe1T",
+    "identification": "https://arxiv.org/pdf/1902.11297.pdf",
+    "field": 82.0,
+    "yield_type": "charge",
+    "drift_field_error": 1.0,
+    "gas_drift_field": "10",
+    "liquid_drift_field": "5",
+    "extraction_efficiency": "1.0",
+    "pixey": "0.85",
+    "recoil_energy": [
+        0.5,
+        1.0,
+        3.0,
+        6.0,
+        10.0,
+        30.0,
+        50.0
+    ],
+    "yield": [
+        7.392265299999999,
+        7.243094,
+        6.232044,
+        5.5027623,
+        5.088398000000001,
+        4.2928176,
+        3.9944751000000003
+    ],
+    "recoil_error": [
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.4,
+        0.65
+    ],
+    "corrected_energy": [
+        0.5,
+        1.0,
+        3.0,
+        6.0,
+        10.0,
+        30.0,
+        50.0
+    ]
+}
