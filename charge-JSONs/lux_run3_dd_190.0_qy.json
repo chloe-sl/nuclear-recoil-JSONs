@@ -4,8 +4,8 @@
     "field": 190.0,
     "yield_type": "charge",
     "drift_field_error": 10.0,
-    "gas_drift_field": "6",
-    "liquid_drift_field": "3",
+    "gas_drift_field": 6000.0,
+    "liquid_drift_field": 3000.0,
     "extraction_efficiency": "0.48",
     "pixey": "",
     "recoil_energy": [
