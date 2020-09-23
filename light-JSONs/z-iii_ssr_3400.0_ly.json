@@ -1,6 +1,7 @@
 {
     "name": "Z-III SSR",
     "identification": "10.1016/j.physletb.2011.10.038",
+    "interaction_type": "NR",
     "field": 3400.0,
     "yield_type": "light",
     "drift_field_error": 200.0,

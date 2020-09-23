@@ -1,6 +1,7 @@
 {
     "name": "XENON1T",
     "identification": "https://indico.bnl.gov/event/4908/attachments/20271/27046/181004_QingLin_XENON1T_BNLSeminar.pdf\u00a0",
+    "interaction_type": "NR",
     "field": 116.7,
     "yield_type": "light",
     "drift_field_error": 7.5,

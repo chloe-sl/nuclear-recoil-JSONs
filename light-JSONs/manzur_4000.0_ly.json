@@ -1,6 +1,7 @@
 {
     "name": "Manzur",
     "identification": "10.1103/PhysRevC.81.025808",
+    "interaction_type": "NR",
     "field": 4000.0,
     "yield_type": "light",
     "drift_field_error": 0.0,

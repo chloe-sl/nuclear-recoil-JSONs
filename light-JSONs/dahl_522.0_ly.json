@@ -1,6 +1,7 @@
 {
     "name": "Dahl",
     "identification": "http://inspirehep.net/record/1374815/files/E.Dahlthesis.pdf",
+    "interaction_type": "NR",
     "field": 522.0,
     "yield_type": "light",
     "drift_field_error": 23.0,
