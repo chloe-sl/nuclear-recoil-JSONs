@@ -1,14 +1,13 @@
 {
-    "name": "neriX",
+    "name": "NeriX",
     "identification": "10.1103/PhysRevD.98.112003",
-    "interaction_type": "NR",
-    "field": 1020.0,
+    "field": 190.0,
     "yield_type": "charge",
-    "drift_field_error": 0.0,
+    "drift_field_error": 0,
     "gas_drift_field": 10000.0,
     "liquid_drift_field": 5405.4054049999995,
-    "extraction_efficiency": "0.903",
-    "pixey": "0.903177465",
+    "extraction_efficiency": 0.903,
+    "pixey": 0.903177465,
     "recoil_energy": [
         4.95,
         6.6,
@@ -16,10 +15,10 @@
         13.95
     ],
     "yield": [
-        7.0,
-        6.0,
-        6.0,
-        6.1
+        5.9,
+        5.8,
+        5.7,
+        6.2
     ],
     "recoil_error": [
         0.3,

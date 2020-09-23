@@ -1,6 +1,7 @@
 {
     "name": "neriX",
     "identification": "10.1103/PhysRevD.98.112003",
+    "interaction_type": "NR",
     "field": 490.0,
     "yield_type": "charge",
     "drift_field_error": 0.0,

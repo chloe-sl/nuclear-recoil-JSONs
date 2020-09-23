@@ -1,6 +1,7 @@
 {
     "name": "PandaX",
     "identification": "{private}",
+    "interaction_type": "NR",
     "field": 395.7,
     "yield_type": "charge",
     "drift_field_error": 3.7,

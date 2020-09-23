@@ -1,6 +1,7 @@
 {
     "name": "Case",
     "identification": "10.1103/PhysRevLett.97.081302",
+    "interaction_type": "NR",
     "field": 100.0,
     "yield_type": "charge",
     "drift_field_error": 40.0,

@@ -1,6 +1,7 @@
 {
     "name": "Xe1T",
     "identification": "https://arxiv.org/pdf/1902.11297.pdf",
+    "interaction_type": "NR",
     "field": 82.0,
     "yield_type": "charge",
     "drift_field_error": 1.0,
