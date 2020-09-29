@@ -36,4 +36,5 @@ pixey:	Extraction efficiency as predicted by PIXeY experiment	(Number)
 
 corrected_energy:	Corrected recoil energy values (may be the same as recoil_energy)	(Number)
 
-#How does a CSV get turned into a JSON?
+# How does a CSV get turned into a JSON?
+jsons.py can turn a CSV into a JSON. Then, data_utils.py allows you to turn the JSON into a pandas dataframe and filter the data in various ways.
