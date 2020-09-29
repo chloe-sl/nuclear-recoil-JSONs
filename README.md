@@ -35,3 +35,5 @@ extraction_efficiency:	Extraction efficiency assumed in the text	(Number)
 pixey:	Extraction efficiency as predicted by PIXeY experiment	(Number)
 
 corrected_energy:	Corrected recoil energy values (may be the same as recoil_energy)	(Number)
+
+#How does a CSV get turned into a JSON?
