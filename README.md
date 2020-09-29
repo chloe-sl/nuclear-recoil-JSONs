@@ -1,5 +1,7 @@
 This repository presents a functional, standardized way to store nuclear recoil experimental data in a JSON format.
 
+charge-yields and light-yields collect many different data sets from particle physics experiments in a JSON format. jsons.py allows existing CSVs to be turned into JSONs, and data_utils.py allows these JSONs to be filtered and otherwise manipulated using Pandas dataframes.
+
 # What variables are currently represented by the JSONs?
 
 name: The name or title of the experiment	(provided as a string)
