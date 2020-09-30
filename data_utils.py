@@ -1,16 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[78]:
-
-
 import json
 import pandas as pd
 import glob
-
-
-# In[79]:
-
 
 files = glob.glob('*.json')
 dfs = []
@@ -18,10 +11,6 @@ for file in files:
     df = pd.read_json(file)
     dfs.append(df)
     #This creates a list of dataframes that are equivalent to the JSONs created with jsons.py
-
-
-# In[80]:
-
 
 def field_filter(lower_field, upper_field, dataframes):
     '''
@@ -63,10 +52,3 @@ def interaction_type_filter(interaction, dataframes):
         if df['interaction_type'][0] == interaction:
             return_dfs.append(df)
     return return_dfs
-
-
-# In[ ]:
-
-
-
-
