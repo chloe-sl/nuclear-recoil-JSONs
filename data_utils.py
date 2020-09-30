@@ -5,12 +5,15 @@ import json
 import pandas as pd
 import glob
 
-files = glob.glob('*.json')
-dfs = []
-for file in files:
-    df = pd.read_json(file)
-    dfs.append(df)
-    #This creates a list of dataframes that are equivalent to the JSONs created with jsons.py
+def load_all():
+    '''
+    This creates a list of dataframes that are equivalent to the JSONs created with jsons.py
+    ''' 
+    files = glob.glob('*.json')
+    dfs = []
+    for file in files:
+        df = pd.read_json(file)
+        dfs.append(df)
 
 def field_filter(lower_field, upper_field, dataframes):
     '''
