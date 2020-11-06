@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[1]:
 
 
 import json
@@ -29,7 +29,7 @@ def load_all(pathname):
     return dfs
 
 
-# In[3]:
+# In[10]:
 
 
 def field_filter(lower_field, upper_field, dataframes):
@@ -52,14 +52,11 @@ def energy_filter(lower_energy, upper_energy, dataframes):
     return_dfs = []
     for df in dataframes:
         energies = df['recoil_energy']
-        flag = True
         for e in energies:
             if lower_energy <= e <= upper_energy:
-                pass
+                return_dfs.append(df)
             else:
-                flag = False
-        if flag == True:
-            return_dfs.append(df)
+                pass
     return return_dfs
 
 def interaction_type_filter(interaction, dataframes):
@@ -82,13 +79,17 @@ def interaction_type_filter(interaction, dataframes):
 detector = nestpy.DetectorExample_XENON10()     
 nc = nestpy.NESTcalc(detector)
 @np.vectorize
+
 def GetYieldsVectorized(interaction, yield_type, **kwargs):
     yield_object = nc.GetYields(interaction = interaction, **kwargs)
     return getattr(yield_object, yield_type) 
+
 def ElectronYield(**kwargs):
     return GetYieldsVectorized(yield_type = 'ElectronYield', **kwargs)
+
 def PhotonYield(**kwargs):
     return GetYieldsVectorized(yield_type = 'PhotonYield', **kwargs)
+
 def nest_curve(field, yield_type):
     fields = np.asarray([field])
     energies = np.logspace(-1, 2, 1000,)
@@ -100,6 +101,7 @@ def nest_curve(field, yield_type):
     if yield_type == 'light':
         nest_yields = PhotonYield(interaction=nestpy.INTERACTION_TYPE.NR, **kwargs)/energies
     return (energies, nest_yields)
+
 def get_yields(energies, field, yield_type):
     kwargs = {'energy': energies, 'drift_field': field}
     if yield_type == 'charge':
@@ -112,7 +114,7 @@ def get_yields(energies, field, yield_type):
 # In[5]:
 
 
-def plot_data(df, savefig=False):#, charge_or_light, nest_values, savefig=False):
+def plot_data(df, savefig=False):
     '''
     Goal: to make a scatter plot of all the different yields at various energies.
     '''
@@ -121,7 +123,7 @@ def plot_data(df, savefig=False):#, charge_or_light, nest_values, savefig=False)
    # bbox = dict(boxstyle="round", fc="1.00", edgecolor='none')
     
     #Create the plot
-    fig, (subplot1, subplot2) = plt.subplots(2, figsize=(7,5), gridspec_kw={'height_ratios': [3, 1]})
+    fig, (subplot1, subplot2) = plt.subplots(2, figsize=(7,5), sharex = True, gridspec_kw={'height_ratios': [3, 1]})
      
     #Get data from the dataframe
     yields = df['yield'].tolist()
@@ -132,11 +134,8 @@ def plot_data(df, savefig=False):#, charge_or_light, nest_values, savefig=False)
     
     subplot1.scatter(energy, yields, s=15, c= '#1f77b4',label= name)
     
-    #If error information is included, create errorbars in both x and y dimensions
-    try:
-        subplot1.errorbar(energy, yields, xerr = df['recoil_error'].tolist(), linewidth = 1, fmt = 'none')
-    except:
-        pass
+    #If error information is included, create y-errorbars
+    
     try:
         yield_errors = [df['min_yield'].tolist(), df['max_yield'].tolist()]
         subplot1.errorbar(energy, yields, yerr = yield_errors, linewidth = 1, fmt = 'none')
@@ -173,7 +172,7 @@ def plot_data(df, savefig=False):#, charge_or_light, nest_values, savefig=False)
         residuals[energy[i]] = residuals[energy[i]] / error_div[i]
     except:
         pass    
-    subplot2.scatter(list(residuals.keys()), list(residuals.values()))#, 'c--', label= nest_label)
+    subplot2.scatter(list(residuals.keys()), list(residuals.values()))
     
     #Labels and a line at 0 for the residuals subplot
     subplot2.axhline(y=0, ls= '--')
@@ -189,20 +188,13 @@ def plot_data(df, savefig=False):#, charge_or_light, nest_values, savefig=False)
         plt.savefig('qy.png') 
 
 
-# In[10]:
+# In[8]:
 
 
 def make_pdf(dfs, filename):
-    '''Given a list of dataframes, create a pdf with the given filename containing a plot of each one'''
-    pdf = matplotlib.backends.backend_pdf.PdfPages(filename)
+    pdf = PdfPages(filename)    
     for df in dfs:
         fig = plot_data(df)
         pdf.savefig(fig)
     pdf.close()
-
-
-# In[ ]:
-
-
-
 
