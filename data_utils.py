@@ -131,15 +131,18 @@ def plot_data(df, savefig=False):
     driftField = df['field'].iloc[0]
     yieldType = df['yield_type'].iloc[0]    
     name = df['identification'].iloc[0]
-    
+    error_flag = False
+    if 'recoil_error' in list(df.columns):
+        error_flag = True
+        error = df['recoil_error'].tolist()
+
     subplot1.scatter(energy, yields, s=15, c= '#1f77b4',label= name)
     
     #If error information is included, create y-errorbars
     
-    try:
-        yield_errors = [df['min_yield'].tolist(), df['max_yield'].tolist()]
-        subplot1.errorbar(energy, yields, yerr = yield_errors, linewidth = 1, fmt = 'none')
-    except:
+    if error_flag == True:
+        subplot1.errorbar(energy, yields, yerr = df['recoil_error'].tolist(), linewidth = 1, fmt = 'none')
+    else:
         pass
         
     #plotting the nest curve
@@ -164,19 +167,20 @@ def plot_data(df, savefig=False):
    
     #Creating a subplot with residuals: 
     nest_yvals = get_yields(energy, driftField, yieldType)
-    residuals = {}
-    for i in range(len(energy)):
-        residuals[energy[i]] = (yields[i]-nest_yvals[i])
-    try:
-        error_div = [(a + b)/2 for a, b in zip(yield_errors[0], yield_errors[1])]
-        residuals[energy[i]] = residuals[energy[i]] / error_div[i]
-    except:
-        pass    
+    if error_flag == True:
+        resid_vals = [(x - y)/z for x, y, z in zip(yields, nest_yvals, error)]
+    else:
+        resid_vals = [x - y for x, y in zip(yields, nest_yvals)]
+    residuals = dict(zip(energy, resid_vals))
+    
     subplot2.scatter(list(residuals.keys()), list(residuals.values()))
     
     #Labels and a line at 0 for the residuals subplot
     subplot2.axhline(y=0, ls= '--')
     subplot2.set_ylabel('\u03C3 (deviation)')
+    
+    if any(abs(x) > 10 for x in residuals.values()):
+        subplot2.set_yscale('symlog')
     
     #Grid lines
     subplot1.grid(b=True)
